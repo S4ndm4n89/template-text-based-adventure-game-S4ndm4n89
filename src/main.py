@@ -107,4 +107,3 @@ if __name__ == "__main__":
         #print(value)
         #test_addition()
         test_in_room()
-d
