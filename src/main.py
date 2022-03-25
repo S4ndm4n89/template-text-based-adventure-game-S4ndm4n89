@@ -63,12 +63,47 @@ def in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number):
         puzzle_guess = input(puzzle)
         if puzzle_guess == puzzle_solution:
                 print("Correct, {Key_number} collected.") 
-                backpack.append(f"Key {key_number}")
+               #checking if key is allready in back pack
+                if f"key {key_number}" not in backpack:
+                        backpack.append(f"key {key_number}")
+                else:
+                        print("You have this key allready!")
         else:
                 lives -= 1
                 print(f"incorrect, you have {lives} lives remaining.")
 
         return lives  
 
+def addition(a,b):
+        return a+b+5
+#test need test_......
+def test_addition():
+        assert addition(3,5) == 8
+        assert addition(-1,0) ==-1
+        assert addition(-1,1) == 0
+
+def test_in_room():#test what happen when answer is wrong.
+
+        backpack =[]
+        lives = 3
+        room_colour = "Black"
+        puzzle = "what is 6 + 8?"
+        puzzle_solution = "13"
+        key_number = "4"
+
+        #assert in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number) == 2 #lives-1
+
+        #check corret
+        assert in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number) == 3 #lives =
+        assert f"key {key_number}" in backpack #check that this key is in backpack
+
+        in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number)
+        assert backpack !=["key 4, key 4"]
+      
+
 if __name__ == "__main__":
-        main()
+        #main()
+        #value = addition(3,2)
+        #print(value)
+        #test_addition()
+        test_in_room()
