@@ -106,6 +106,6 @@ if __name__ == "__main__":
         #value = addition(3,2)
         #print(value)
         #test_addition()
-        test_in_room()
+        #test_in_room()
 
         
