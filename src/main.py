@@ -47,7 +47,7 @@ def main():
                 lives = in_room(backpack,lives, room_colour, puzzle, puzzle_solution, key_number)
 
         else:
-                print("Room colour not recognised!")   
+                print("Room colour not Recognised!")   
 
         #if back pack is full, open door and win game.
         if ("Key 1" in backpack) and ("Key 2" in backpack) and ("Key 3" in backpack) and ("key 4" in backpack):
@@ -107,5 +107,6 @@ if __name__ == "__main__":
         #print(value)
         #test_addition()
         #test_in_room()
+
 
         
