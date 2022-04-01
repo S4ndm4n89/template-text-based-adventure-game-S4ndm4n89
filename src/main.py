@@ -59,7 +59,7 @@ def main():
                 exit()
 
 def in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number):
-        print(f"you have entered the {room_colour} room. ")
+        print(f"you have entered the {room_colour} room. A timer Starts you have 20 sec to solve the puzzle")
         puzzle_guess = input(puzzle)
         if puzzle_guess == puzzle_solution:
                 print(f"Correct, {key_number} collected.") 
@@ -107,6 +107,8 @@ if __name__ == "__main__":
         #print(value)
         #test_addition()
         #test_in_room()
+
+
 
 
         
