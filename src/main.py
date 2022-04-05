@@ -17,19 +17,19 @@ def main():
     sleep(4)
     print("On the floor in front of you, there is a note ! it reads:")
     sleep(4) 
-    print("\n welcome to My game, you need to complete four puzzles and collect there Key to escape. Be aware of hidden threats! ") 
+    print("\nwelcome to My game, you need to complete four puzzles and collect there Key to escape. Be aware of hidden threats! ") 
     sleep (4)    
-    print("Upon looking around this central room again you find a backpack and put it on")
+    print("\nUpon looking around this central room again you find a backpack and put it on")
     sleep(2)
-    print("\n you also notice door like shape in the corner of the room, it has four key like wholes init. ")  
+    print("\nyou also notice door like shape in the corner of the room, it has four key like wholes init. ")  
     sleep(2)    
     while True:
         Colour = input("\n Which room do you want to try? please choice from Red, Blue, Green or Black. ").lower().strip()    
 
         if Colour == "red":
                 room_colour = "Red"
-                puzzle = " what is 2 + 2?"
-                puzzle_solution = "4"
+                puzzle = " what is 2 + 2 * 8 ?"
+                puzzle_solution = "32"
                 key_number = "1"
                 lives = in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number)
                
@@ -42,8 +42,8 @@ def main():
 
         elif Colour == "green":
                 room_colour = "Green"
-                puzzle = " what is 2*8  ?"
-                puzzle_solution = "16"
+                puzzle = " what is 2*8*7  ?"
+                puzzle_solution = "112"
                 key_number = "3"
                 lives = in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number)
 
