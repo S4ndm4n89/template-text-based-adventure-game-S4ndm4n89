@@ -9,9 +9,10 @@ def main():
 
     lives = 3
     sleep(2)
-    print(f"You have {lives } Remaining lives")
+    print( PlayerName + f" You have {lives } Remaining lives")
 
     backpack = [] # initialise empty list for backpack
+
     sleep(2)    
     print("you awake in a room to your front is a Blue door, to your right is a Red door, to left is a Green door and behind you there is a Black Door.") 
     sleep(4)
@@ -57,10 +58,10 @@ def main():
 
         else:
                 print("Room colour not Recognised!")   
-
+        
         #if back pack is full, open door and win game.
-        if ("Key 1" in backpack) and ("Key 2" in backpack) and ("Key 3" in backpack) and ("key 4" in backpack):
-                print(" you input the four keys into the strange door in the corner, it open and you see the outside, you run for freedom\n you escape! game over!!  ") 
+        if ("key 1" in backpack) and ("key 2" in backpack) and ("key 3" in backpack) and ("key 4" in backpack):
+                print(" you input the four keys into the strange door in the corner, it open and you see the outside, you run for freedom\n you escape! Game Completed !!  ") 
                 exit()
 
         if lives == 0:
@@ -69,10 +70,11 @@ def main():
 
 def in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number):
         print(f"you have entered the {room_colour} room. A timer Starts you have 20 sec to solve the puzzle")
-        puzzle_guess = input(puzzle)
+        
+
+
      # Implement input timer
         time_limit = 20
-
         timeout_container = [False]
         lives_container = [lives]
         t = Timer(time_limit, check_time_out, args=(lives_container,timeout_container,))
@@ -85,15 +87,16 @@ def in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number):
 
         if not timeout:
                 if puzzle_guess == puzzle_solution:
-                        if f"Key {key_number}" not in backpack:
-                                print(f"Correct. Key {key_number} collected.")
-                                backpack.append(f"Key {key_number}")
+                        if f"key {key_number}" not in backpack:
+                                print(f"Correct. key {key_number} collected.")
+                                backpack.append(f"key {key_number}")
+                        
                         else:
                                 print("You have already collected this key!")
                 else:
                         lives -= 1
                         print(f"Incorrect. You have {lives} lives remaining.")
-
+                
         return lives
 
 def check_time_out(lives_container,timeout_container):
