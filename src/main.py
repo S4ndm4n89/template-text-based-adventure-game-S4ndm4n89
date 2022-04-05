@@ -1,3 +1,4 @@
+from threading import Timer
 
 def main():
         
@@ -61,18 +62,37 @@ def main():
 def in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number):
         print(f"you have entered the {room_colour} room. A timer Starts you have 20 sec to solve the puzzle")
         puzzle_guess = input(puzzle)
-        if puzzle_guess == puzzle_solution:
-                print(f"Correct, {key_number} collected.") 
-               #checking if key is allready in back pack
-                if f"key {key_number}" not in backpack:
-                        backpack.append(f"key {key_number}")
-                else:
-                        print("You have this key allready!")
-        else:
-                lives -= 1
-                print(f"incorrect, you have {lives} lives remaining.")
+     # Implement input timer
+        time_limit = 3
+        timeout_container = [False]
+        lives_container = [lives]
+        t = Timer(time_limit, check_time_out, args=(lives_container,timeout_container,))
+        t.start()
+        print(f"You have {time_limit} seconds to choose the correct answer...\n")
+        puzzle_guess = input(puzzle)
+        t.cancel()
+        lives = lives_container[0]
+        timeout = timeout_container[0]
 
-        return lives  
+        if not timeout:
+                if puzzle_guess == puzzle_solution:
+                        if f"Key {key_number}" not in backpack:
+                                print(f"Correct. Key {key_number} collected.")
+                                backpack.append(f"Key {key_number}")
+                        else:
+                                print("You have already collected this key!")
+                else:
+                        lives -= 1
+                        print(f"Incorrect. You have {lives} lives remaining.")
+
+        return lives
+
+def check_time_out(lives_container,timeout_container):
+        lives_container[0] -= 1
+        print(f"Time out! You have {lives_container[0]} lives remaining. Press Enter to continue.")
+        timeout_container[0] = True
+        return lives_container, timeout_container
+ 
 
 #def addition(a,b):
         return a+b+5
