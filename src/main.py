@@ -1,5 +1,5 @@
 from threading import Timer
-
+from time import sleep
 def main():
         
     print("Welcome to the Game")
@@ -8,15 +8,23 @@ def main():
     print(f"Hello " + PlayerName)
 
     lives = 3
+    sleep(2)
     print(f"You have {lives } Remaining lives")
 
     backpack = [] # initialise empty list for backpack
-
-    print("you awake in a room to your front is a Blue door, to your right is a Red door, to left is a Green door and behind you there is a Black Door. \nOn the floor in front of you, there is a note ! it read \n( welcome to My game, you need to complete four puzzles and collect there Key to escape. Be aware of hidden threats!) ") 
-    print("Upon looking around this central room again you find a backpack and put it on,\n you also notice door like shape in the corner of the room, it has four key like hole init.   ")  
-
+    sleep(2)    
+    print("you awake in a room to your front is a Blue door, to your right is a Red door, to left is a Green door and behind you there is a Black Door.") 
+    sleep(4)
+    print("On the floor in front of you, there is a note ! it reads:")
+    sleep(4) 
+    print("\n welcome to My game, you need to complete four puzzles and collect there Key to escape. Be aware of hidden threats! ") 
+    sleep (4)    
+    print("Upon looking around this central room again you find a backpack and put it on")
+    sleep(2)
+    print("\n you also notice door like shape in the corner of the room, it has four key like wholes init. ")  
+    sleep(2)    
     while True:
-        Colour = input("Which room do you want to try? please choice from Red, Blue, Green or Black. ").lower().strip()    
+        Colour = input("\n Which room do you want to try? please choice from Red, Blue, Green or Black. ").lower().strip()    
 
         if Colour == "red":
                 room_colour = "Red"
@@ -63,7 +71,8 @@ def in_room(backpack,lives,room_colour,puzzle,puzzle_solution,key_number):
         print(f"you have entered the {room_colour} room. A timer Starts you have 20 sec to solve the puzzle")
         puzzle_guess = input(puzzle)
      # Implement input timer
-        time_limit = 3
+        time_limit = 20
+
         timeout_container = [False]
         lives_container = [lives]
         t = Timer(time_limit, check_time_out, args=(lives_container,timeout_container,))
