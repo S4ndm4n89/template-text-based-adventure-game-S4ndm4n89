@@ -2,7 +2,7 @@ from threading import Timer
 from time import sleep
 def main():
         
-    print("Welcome to the Game")
+    print("Welcome to Escape")
 
     PlayerName=input("what is your name? ")
     print(f"Hello " + PlayerName)
